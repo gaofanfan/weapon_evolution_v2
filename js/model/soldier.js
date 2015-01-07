@@ -6,4 +6,7 @@ function Soldier(name, role, hp, attackPoint, armor, weapon) {
   this.weapon = weapon || null;
 }
 
+Solider.prototype = Object.create(Player.prototype);
+Solider.prototype.constructor = Solider;
+
 module.exports = Solider;
