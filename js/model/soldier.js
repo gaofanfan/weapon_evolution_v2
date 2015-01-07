@@ -6,7 +6,32 @@ function Soldier(name, role, hp, attackPoint, armor, weapon) {
   this.weapon = weapon || null;
 }
 
-Solider.prototype = Object.create(Player.prototype);
-Solider.prototype.constructor = Solider;
+Soldier.prototype = Object.create(Player.prototype);
+Soldier.prototype.constructor = Soldier;
 
-module.exports = Solider;
+Soldier.prototype.attack = function (defender) {
+  var result = '';
+  defender.hp -= this.getAttackPoint(defender.getDefenderPoint());
+
+  result += this.role + this.name + '用' + this.weapon.name + '攻击了' +
+    defender.role + defender.name + ',' + defender.name + '受到了' +
+    this.getAttackPoint(defender.getDefenderPoint()) + '点伤害，' +
+    defender.name + '剩余生命值：' + defender.hp + '\n';
+
+  if (defender.hp <= 0) {
+    result += '\n' + defender.name + 'OUT!!';
+  }
+
+  return result;
+};
+
+Soldier.prototype.getAttackPoint = function(defenderPoint) {
+  return this.attackPoint + this.weapon.attackPoint - defenderPoint;
+};
+
+Soldier.prototype.getDefenderPoint = function() {
+  return this.armor.defenderPoint;
+};
+
+
+module.exports = Soldier;
