@@ -9,15 +9,15 @@ function Soldier(name, role, hp, ap, armor, weapon) {
 Soldier.prototype = Object.create(Player.prototype);
 Soldier.prototype.constructor = Soldier;
 
-Soldier.prototype.build_attack_weapon_with_string = function () {
-  return  '用' + this.weapon.name;
+Soldier.prototype.build_attack_with_string = function () {
+  return  '用' + this.weapon.name + '攻击了';
 };
 
 Soldier.prototype.attack = function (defender) {
   var result = '';
   defender.hp -= this.getAttackPoint(defender.getDefenderPoint());
 
-  result += this.role + this.name +  this.build_attack_weapon_with_string() + '攻击了' +
+  result += this.role + this.name +  this.build_attack_with_string() +
     defender.role + defender.name + ',' + defender.name + '受到了' +
     this.getAttackPoint(defender.getDefenderPoint()) + '点伤害，' +
     defender.name + '剩余生命值：' + defender.hp + '\n';
