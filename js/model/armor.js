@@ -1,6 +1,6 @@
-function Armor(name, defenderPoint) {
+function Armor(name, dp) {
   this.name = name;
-  this.defenderPoint = defenderPoint;
+  this.dp = dp;
 }
 
 module.exports = Armor;

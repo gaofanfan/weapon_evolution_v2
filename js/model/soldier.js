@@ -1,7 +1,7 @@
 var Player = require('./player');
 
-function Soldier(name, role, hp, attackPoint, armor, weapon) {
-  Player.call(this, name, role, hp, attackPoint);
+function Soldier(name, role, hp, ap, armor, weapon) {
+  Player.call(this, name, role, hp, ap);
   this.armor = armor || null;
   this.weapon = weapon || null;
 }
@@ -26,11 +26,11 @@ Soldier.prototype.attack = function (defender) {
 };
 
 Soldier.prototype.getAttackPoint = function(defenderPoint) {
-  return this.attackPoint + this.weapon.attackPoint - defenderPoint;
+  return this.ap + this.weapon.ap - defenderPoint;
 };
 
 Soldier.prototype.getDefenderPoint = function() {
-  return this.armor.defenderPoint;
+  return this.armor.dp;
 };
 
 

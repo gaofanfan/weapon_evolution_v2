@@ -1,5 +1,5 @@
-function Weapon(name, attackPoint) {
+function Weapon(name, ap) {
   this.name = name;
-  this.attackPoint = attackPoint;
+  this.ap = ap;
 }
 module.exports = Weapon;
